@@ -28,12 +28,12 @@
 <meta property="og:site_name" content="一个博客">
 <meta property="og:description" content="CA颁发的证书就是要比自签发证书高贵吗？——我的疑问">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.png">
+<meta property="og:image" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.webp">
 <meta property="article:published_time" content="2024-03-27T03:26:21.000Z">
-<meta property="article:modified_time" content="2024-03-27T07:48:38.092Z">
+<meta property="article:modified_time" content="2024-08-30T01:12:14.139Z">
 <meta property="article:author" content="jiangKerman">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.png">
+<meta name="twitter:image" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.webp">
 
 
 <link rel="canonical" href="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/">
@@ -125,7 +125,7 @@
     <img class="site-author-image" itemprop="image" alt="jiangKerman"
       src="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
   <p class="site-author-name" itemprop="name">jiangKerman</p>
-  <div class="site-description" itemprop="description">博客的拥有者是一个变态</div>
+  <div class="site-description" itemprop="description">我是变态</div>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
@@ -172,7 +172,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="一个博客">
-      <meta itemprop="description" content="博客的拥有者是一个变态">
+      <meta itemprop="description" content="我是变态">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -191,9 +191,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-27 11:26:21 / 修改时间：15:48:38" itemprop="dateCreated datePublished" datetime="2024-03-27T11:26:21+08:00">2024-03-27</time>
+      <time title="创建时间：2024-03-27 11:26:21" itemprop="dateCreated datePublished" datetime="2024-03-27T11:26:21+08:00">2024-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-30 09:12:14" itemprop="dateModified" datetime="2024-08-30T09:12:14+08:00">2024-08-30</time>
     </span>
 
   
@@ -234,7 +240,7 @@
 <p>那就说说CA颁发的证书吧。CA证书和我的自签名证书，一个是受信任的机构给的，一个是我自己给的。前者挂在网上，各大主流浏览器会报安全，后者会报不安全。但是我仔细想想，这两个文件本质上是没有区别的呀。都是用https，我访问的站点并不会因为证书不同而有额外的风险，获取的内容也不会因为证书不同而不同。</p>
 <p>无非就是，自签名证书向用户说“信我，我真的是我”，而CA证书说“信我，CA机构可以证明我”。想起来竟然觉得有点可笑呢，也许这就是资本的力量。只有有钱（甚至不要钱），CA机构可以给任何站点发证书。用户相信这个很随意的CA机构，却不相信同样有着服务器完全控制权的我。</p>
 <p>嗷对了，我在知乎上看“自签名SSL证书有什么风险”，全是商家在打广告，说什么易受攻击啊、不受信任啊之类的。直到我看到了一条回复：</p>
-<img src="/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.png" class="" title="我觉得在理">
+<img src="/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.webp" class="" title="我觉得在理">
 
 <h1 id="事后"><a href="#事后" class="headerlink" title="事后"></a>事后</h1><p>玩归玩，闹归闹。吐槽也吐槽够了，我自己这些肤浅的理解，大部分人根本不关心，也不在乎。我还是老老实实用的certbot吧！工作上的事儿，按照工作流程走就行。自己的理解，自己私下讨论就行。who care</p>
 
