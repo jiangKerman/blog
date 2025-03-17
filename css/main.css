@@ -1400,7 +1400,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ff5d88;
+  background: #c83765;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2795,6 +2795,16 @@ hide {
 hide:hover {
   background-color: #fff;
   color: #000;
+}
+details summary {
+  cursor: pointer;
+  text-decoration: underline;
+}
+details summary:hover {
+  color: #630c3e;
+}
+details[open] summary {
+  color: #630c3e;
 }
 .archive .collection-title {
   display: none !important;
