@@ -31,6 +31,7 @@
 <meta property="article:published_time" content="2025-04-16T07:31:43.000Z">
 <meta property="article:modified_time" content="2025-04-16T07:31:43.000Z">
 <meta property="article:author" content="jiangKerman">
+<meta property="article:tag" content="视频处理">
 <meta name="twitter:card" content="summary">
 
 
@@ -100,7 +101,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -113,6 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">先说结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%BC%80%E5%A7%8B%E8%AE%B2%E6%95%85%E4%BA%8B"><span class="nav-number">2.</span> <span class="nav-text">然后开始讲故事</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BC%98%E5%8C%96%E5%90%97%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">还可以优化吗？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,7 +204,71 @@
     
     <div class="post-body" itemprop="articleBody"><p>需求：有一些很长很长的视频需要掐头去尾，怎么做？</p>
 <span id="more"></span>
-<p>adsf </p>
+
+<h1 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss 00:00:01 -to 01:37:37 -i long_video.mp4 -c copy output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>其中-ss和-to是视频起止时间。注意不是-t，-t是持续时间</p>
+<p>-c copy 不重新编码，直接拷贝视频流，不用重新编码。（几乎瞬间吧）</p>
+<h1 id="然后开始讲故事"><a href="#然后开始讲故事" class="headerlink" title="然后开始讲故事"></a>然后开始讲故事</h1><p>还不是这该死的打杂工作。需要把某迅会议的云录制视频掐头去尾，给其他的人的看。但是视频有个特点就是，很长，但是文件本身不算特别大（3个视频，共计4小时，500多M，也不知道腾讯会议的录制是怎么做的，而且清晰度也是有保证的）</p>
+<p>我一想，这简单啊！我脑补了一下流程👇</p>
+<ol>
+<li>视频丢进adobe pr</li>
+<li>创建三个序列，分别掐头去尾</li>
+<li>发送到media encoder转</li>
+</ol>
+<p>咋一看，没问题是吧，合情合理的操作嘛！</p>
+<p>但是实施起来就遇到了点问题。</p>
+<p>这tm转码出来文件大了很多，而且清晰度也得不到保证。问题在哪儿呢？待老夫瞅瞅原视频</p>
+<p>哦呦！牛了个B</p>
+<table>
+<thead>
+<tr>
+<th>时长</th>
+<th>宽高</th>
+<th>数据速率</th>
+<th>总比特率</th>
+<th>帧速率</th>
+<th>音频比特率</th>
+<th>音频采样频率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>02:15:27</td>
+<td>2560*1440</td>
+<td>190kbps</td>
+<td>316kbps</td>
+<td>30.30fps</td>
+<td>126kbps</td>
+<td>32kHz</td>
+</tr>
+<tr>
+<td>01:40:10</td>
+<td>2160*1080</td>
+<td>83kbps</td>
+<td>210kbps</td>
+<td>15.00fps</td>
+<td>126kbps</td>
+<td>32kHz</td>
+</tr>
+<tr>
+<td>01:11:13</td>
+<td>2160*1080</td>
+<td>121kbps</td>
+<td>248kbps</td>
+<td>30.03fps</td>
+<td>126kbps</td>
+<td>32kHz</td>
+</tr>
+</tbody></table>
+<p>确实牛逼，第二行视频，视频平均比特率只有83kbps，他妈的比音频还小。虽然录屏内容几乎全是静态的ppt，但是在保证质量的同时，能做到这种程度也已经很厉害了……何止厉害，简直无敌好吧！</p>
+<p>我自己用media encoder转出来，比特率1M，文件又大，画面也糊。</p>
+<p>咋办嘛……所以就需要有一种不转码剪辑的方法。</p>
+<p>好耶！ffmpeg<hide>读研时候视频抠图导出帧处理的记忆开始攻击我</hide>，正是在下！</p>
+<p>如开头所说，加 -c copy 就可以实现。速度快，效果好（毕竟不用转码，无损嘛）完结</p>
+<h1 id="还可以优化吗？"><a href="#还可以优化吗？" class="headerlink" title="还可以优化吗？"></a>还可以优化吗？</h1><p>是的，还可以优化，我可以把音频比特率再降低到64kbps甚至32kbps（反正我用我的垃圾耳机也听不出来）👇</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只重新编码音频为 128kbps 的 AAC，视频部分保持不变。</span></span><br><span class="line">ffmpeg -i input.mp4 -c:v copy -c:a aac -b:a 32k output.mp4</span><br></pre></td></tr></table></figure>
+<p>那么，以表格中第二条视频为例，总比特率会降低到<em><strong>118kbps</strong></em>，时长<em><strong>1小时37</strong></em>分钟，文件大小<em><strong>85.6M</strong></em>,而且图像质量有保障。nb。</p>
+<p>腾讯会议，nb！</p>
 
     </div>
 
@@ -211,6 +277,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" rel="tag"># 视频处理</a>
+          </div>
 
         
 
