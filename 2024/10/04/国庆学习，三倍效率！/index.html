@@ -308,49 +308,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2024/10/04/%E5%9B%BD%E5%BA%86%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%B8%89%E5%80%8D%E6%95%88%E7%8E%87%EF%BC%81/',-->
-<!--    pageTitle: '国庆学习，三倍效率！',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2024/10/04/%E5%9B%BD%E5%BA%86%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%B8%89%E5%80%8D%E6%95%88%E7%8E%87%EF%BC%81/',
-        pageTitle: '国庆学习，三倍效率！',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2024/10/04/%E5%9B%BD%E5%BA%86%E5%AD%A6%E4%B9%A0%EF%BC%8C%E4%B8%89%E5%80%8D%E6%95%88%E7%8E%87%EF%BC%81/',
+    pageTitle: '国庆学习，三倍效率！',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 

@@ -382,49 +382,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2024/09/16/%E6%88%91%E5%A5%BD%E5%83%8F%E5%B7%B2%E7%BB%8F%E5%9C%A8galgame%E4%B8%8A%E8%8A%B1%E8%B4%B9%E4%BA%86%E5%BE%88%E5%A4%9A%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BD%86%E6%98%AF%E6%88%91%E4%B8%8D%E4%BC%9A%E6%94%B9/',-->
-<!--    pageTitle: '我好像已经在galgame上花费了很多时间，但是我不会改',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2024/09/16/%E6%88%91%E5%A5%BD%E5%83%8F%E5%B7%B2%E7%BB%8F%E5%9C%A8galgame%E4%B8%8A%E8%8A%B1%E8%B4%B9%E4%BA%86%E5%BE%88%E5%A4%9A%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BD%86%E6%98%AF%E6%88%91%E4%B8%8D%E4%BC%9A%E6%94%B9/',
-        pageTitle: '我好像已经在galgame上花费了很多时间，但是我不会改',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2024/09/16/%E6%88%91%E5%A5%BD%E5%83%8F%E5%B7%B2%E7%BB%8F%E5%9C%A8galgame%E4%B8%8A%E8%8A%B1%E8%B4%B9%E4%BA%86%E5%BE%88%E5%A4%9A%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BD%86%E6%98%AF%E6%88%91%E4%B8%8D%E4%BC%9A%E6%94%B9/',
+    pageTitle: '我好像已经在galgame上花费了很多时间，但是我不会改',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 

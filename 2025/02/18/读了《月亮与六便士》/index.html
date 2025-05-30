@@ -353,49 +353,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2025/02/18/%E8%AF%BB%E4%BA%86%E3%80%8A%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/',-->
-<!--    pageTitle: '读了《月亮与六便士》',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2025/02/18/%E8%AF%BB%E4%BA%86%E3%80%8A%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/',
-        pageTitle: '读了《月亮与六便士》',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2025/02/18/%E8%AF%BB%E4%BA%86%E3%80%8A%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/',
+    pageTitle: '读了《月亮与六便士》',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 

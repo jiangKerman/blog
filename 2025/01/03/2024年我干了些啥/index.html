@@ -402,49 +402,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2025/01/03/2024%E5%B9%B4%E6%88%91%E5%B9%B2%E4%BA%86%E4%BA%9B%E5%95%A5/',-->
-<!--    pageTitle: '2024年我干了些啥',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2025/01/03/2024%E5%B9%B4%E6%88%91%E5%B9%B2%E4%BA%86%E4%BA%9B%E5%95%A5/',
-        pageTitle: '2024年我干了些啥',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2025/01/03/2024%E5%B9%B4%E6%88%91%E5%B9%B2%E4%BA%86%E4%BA%9B%E5%95%A5/',
+    pageTitle: '2024年我干了些啥',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 

@@ -348,49 +348,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2023/11/07/%E8%A7%82%E9%9F%B3%E6%A1%A5%E6%B5%81%E6%B5%AA%E6%8C%87%E5%8D%97/',-->
-<!--    pageTitle: '观音桥流浪指南',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2023/11/07/%E8%A7%82%E9%9F%B3%E6%A1%A5%E6%B5%81%E6%B5%AA%E6%8C%87%E5%8D%97/',
-        pageTitle: '观音桥流浪指南',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2023/11/07/%E8%A7%82%E9%9F%B3%E6%A1%A5%E6%B5%81%E6%B5%AA%E6%8C%87%E5%8D%97/',
+    pageTitle: '观音桥流浪指南',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 

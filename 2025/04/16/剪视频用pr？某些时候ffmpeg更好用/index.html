@@ -325,49 +325,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/',-->
-<!--    pageTitle: '剪视频用pr？某些时候ffmpeg更好用',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/',
-        pageTitle: '剪视频用pr？某些时候ffmpeg更好用',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/',
+    pageTitle: '剪视频用pr？某些时候ffmpeg更好用',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 

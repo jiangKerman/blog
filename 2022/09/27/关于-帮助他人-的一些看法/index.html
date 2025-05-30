@@ -296,49 +296,19 @@
 
 
 <hr>
-  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
-<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
-
-<!--<div id="Comments"></div>-->
-
-<!--<script>-->
-<!--  var artalk = Artalk.init({-->
-<!--    el: '#Comments',-->
-<!--    pageKey: 'https://jiangkerman.cc/2022/09/27/%E5%85%B3%E4%BA%8E-%E5%B8%AE%E5%8A%A9%E4%BB%96%E4%BA%BA-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/',-->
-<!--    pageTitle: '关于[帮助他人]的一些看法',-->
-<!--    server: 'https://artalk.jiangkerman.cc',-->
-<!--    site: '一个博客',-->
-<!--  })-->
-<!--</script>-->
-
-
-
-<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  function loadArtalk() {
-    if (document.getElementById('Comments')) {
-      // 清除旧实例（防止重复加载）
-      document.getElementById('Comments').innerHTML = '';
-
-      Artalk.init({
-        el: '#Comments',
-        pageKey: 'https://jiangkerman.cc/2022/09/27/%E5%85%B3%E4%BA%8E-%E5%B8%AE%E5%8A%A9%E4%BB%96%E4%BA%BA-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/',
-        pageTitle: '关于[帮助他人]的一些看法',
-        server: 'https://artalk.jiangkerman.cc',
-        site: '一个博客',
-      });
-    }
-  }
-
-  // 首次加载
-  loadArtalk();
-
-  // PJAX 页面跳转后重新加载评论
-  document.addEventListener('pjax:complete', loadArtalk);
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2022/09/27/%E5%85%B3%E4%BA%8E-%E5%B8%AE%E5%8A%A9%E4%BB%96%E4%BA%BA-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95/',
+    pageTitle: '关于[帮助他人]的一些看法',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
 </script>
 </div>
 
