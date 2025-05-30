@@ -54,9 +54,10 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -286,19 +287,49 @@
 
 
 <hr>
-  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+  <div class="article-comments"><!--<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />-->
+<!--<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>-->
+
+<!--<div id="Comments"></div>-->
+
+<!--<script>-->
+<!--  var artalk = Artalk.init({-->
+<!--    el: '#Comments',-->
+<!--    pageKey: 'https://jiangkerman.cc/2024/11/12/%E4%B8%8D%E9%A2%9D%E5%A4%96%E5%81%9A%E6%93%8D%E4%BD%9C%E7%9A%84GitHubPage%E5%A4%AA%E6%85%A2%E4%BA%86-%E8%BF%98%E6%98%AF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%A7/',-->
+<!--    pageTitle: '不额外做操作的GitHubPage太慢了，还是用自己的服务器吧',-->
+<!--    server: 'https://artalk.jiangkerman.cc',-->
+<!--    site: '一个博客',-->
+<!--  })-->
+<!--</script>-->
+
+
+
+<link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
 <script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
 
 <div id="Comments"></div>
 
 <script>
-  var artalk = Artalk.init({
-    el: '#Comments',
-    pageKey: 'https://jiangkerman.cc/2024/11/12/%E4%B8%8D%E9%A2%9D%E5%A4%96%E5%81%9A%E6%93%8D%E4%BD%9C%E7%9A%84GitHubPage%E5%A4%AA%E6%85%A2%E4%BA%86-%E8%BF%98%E6%98%AF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%A7/',
-    pageTitle: '不额外做操作的GitHubPage太慢了，还是用自己的服务器吧',
-    server: 'https://artalk.jiangkerman.cc',
-    site: '一个博客',
-  })
+  function loadArtalk() {
+    if (document.getElementById('Comments')) {
+      // 清除旧实例（防止重复加载）
+      document.getElementById('Comments').innerHTML = '';
+
+      Artalk.init({
+        el: '#Comments',
+        pageKey: 'https://jiangkerman.cc/2024/11/12/%E4%B8%8D%E9%A2%9D%E5%A4%96%E5%81%9A%E6%93%8D%E4%BD%9C%E7%9A%84GitHubPage%E5%A4%AA%E6%85%A2%E4%BA%86-%E8%BF%98%E6%98%AF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%A7/',
+        pageTitle: '不额外做操作的GitHubPage太慢了，还是用自己的服务器吧',
+        server: 'https://artalk.jiangkerman.cc',
+        site: '一个博客',
+      });
+    }
+  }
+
+  // 首次加载
+  loadArtalk();
+
+  // PJAX 页面跳转后重新加载评论
+  document.addEventListener('pjax:complete', loadArtalk);
 </script>
 </div>
 
