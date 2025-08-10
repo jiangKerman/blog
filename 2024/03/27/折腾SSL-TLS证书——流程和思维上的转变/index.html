@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="mask-icon" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp" color="#222">
+  <meta name="baidu-site-verification" content="code-eLttOMXOZX">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.css" integrity="sha256-zM8WXtG4eUn7dKKNMTuoWZub++VnSfaOpA/8PJfvTBo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangkerman.cc","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="CA颁发的证书就是要比自签发证书高贵吗？——我的疑问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾SSL&#x2F;TLS证书——流程和思维上的转变">
+<meta property="og:url" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/index.html">
+<meta property="og:site_name" content="是一个变态的说">
+<meta property="og:description" content="CA颁发的证书就是要比自签发证书高贵吗？——我的疑问">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.webp">
+<meta property="article:published_time" content="2024-03-27T03:26:21.000Z">
+<meta property="article:modified_time" content="2025-08-09T16:26:04.279Z">
+<meta property="article:author" content="jiangKerman">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.webp">
+
+
+<link rel="canonical" href="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/","path":"2024/03/27/折腾SSL-TLS证书——流程和思维上的转变/","title":"折腾SSL/TLS证书——流程和思维上的转变"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>折腾SSL/TLS证书——流程和思维上的转变 | 是一个变态的说</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">是一个变态的说</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">jiangKerman的收纳箱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-博客"><a href="/blog/" rel="section"><i class="fa fa-archive fa-fw"></i>博客</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E6%93%8D%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">实操部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">事后总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E7%94%A8https%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">启用https的必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E4%BA%86SSL-TSL%E8%AF%81%E4%B9%A6%E6%94%B9%E7%94%A8%E4%BA%86https%E5%B0%B1%E5%AE%89%E5%85%A8%E4%BA%86%E5%90%97%EF%BC%9F"><span class="nav-number">2.2.</span> <span class="nav-text">有了SSL&#x2F;TSL证书改用了https就安全了吗？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E"><span class="nav-number">3.</span> <span class="nav-text">事后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangKerman"
+      src="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+  <p class="site-author-name" itemprop="name">jiangKerman</p>
+  <div class="site-description" itemprop="description">我是变态</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiangKerman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiangKerman" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jiangKerman@outlook.com" title="E-Mail → mailto:jiangKerman@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=2643233986&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;2643233986&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/109209979" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;109209979" rel="noopener me" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+      <meta itemprop="name" content="jiangKerman">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是一个变态的说">
+      <meta itemprop="description" content="我是变态">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="折腾SSL&#x2F;TLS证书——流程和思维上的转变 | 是一个变态的说">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          折腾SSL/TLS证书——流程和思维上的转变
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-27 11:26:21" itemprop="dateCreated datePublished" datetime="2024-03-27T11:26:21+08:00">2024-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-10 00:26:04" itemprop="dateModified" datetime="2025-08-10T00:26:04+08:00">2025-08-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>CA颁发的证书就是要比自签发证书高贵吗？——我的疑问</p>
+</blockquote>
+<span id="more"></span>
+<p>这两天因工作上的事情，有几台服务器需要更新SSL&#x2F;TLS证书，再加上自己的服务器还有一些用的是http，就正好一起弄了一下。然后我发现我的思路和别人的思路不太一样。</p>
+<h1 id="实操部分"><a href="#实操部分" class="headerlink" title="实操部分"></a>实操部分</h1><p>工作单位上的服务器证书更新。没啥特别的操作，纯手工，朴实无华，甚至透露着呆板。从阿里云处获取到<hide>每年花费上千购买的</hide>证书，将它放到服务器下，然后nginx做一些配置就可以了。</p>
+<p>没什么特别，除了贵、繁琐、服务器在内网下、各种代理杂乱无章之外，似乎也没有什么问题 :(</p>
+<p>其实我自己以前的服务器也是这样搞的，下载证书，传到服务器，按照指引验证控制权，巴拉巴拉的。确实，没什么问题，除了我根本不关心这里面的流程以外。说人话就是，对我而言这些操作完全是在浪费我的时间精力。</p>
+<p>然后阿里云提供的免费证书日期也变成三个月了，我经不起折腾了。遂转到<a target="_blank" rel="noopener" href="https://letsencrypt.org/zh-cn/getting-started/">Lets Encrypt</a>。</p>
+<p>按照指引，用<a target="_blank" rel="noopener" href="https://certbot.eff.org/instructions?ws=nginx&os=ubuntubionic">certbot</a>装证书，那感觉，一个字，绝。我甚至都不知道为什么以前我要手动去搞这些玩意儿。<br>给大家伙看看这两种证书安装方式的对比嗷！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ubuntu20，用的nginx</span></span><br><span class="line">sudo snap install --classic certbot  # 安装certbot</span><br><span class="line">sudo ln -s /snap/bin/certbot /usr/bin/certbot  # 确保certbot可用</span><br><span class="line">sudo certbot --nginx  # 获取并安装证书，会让你设置通知邮箱、对哪些站点进行配置</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">sudo</span> certbot certonly --nginx   <span class="comment"># 或者只是获取证书</span></span></span><br></pre></td></tr></table></figure>
+<p>两分钟不到，完事儿了，甚至到期前自动更新证书也给你配好，我铁幕都还没缓过神来，居然就已经结束了。</p>
+<p>换做是以前，想想我需要怎么做嗷。</p>
+<ol>
+<li>去阿里云申请证书并下载</li>
+<li>把证书文件上传到服务器</li>
+<li>配置nginx</li>
+</ol>
+<p>虽然看起来也不麻烦，但是既然我不关心这背后是怎么部署的，我又何必要手动去搞呢？</p>
+<p>其实在这之前我有很多次都接触过Let’s Encrypt，也进过certbot的页面看过工作流程。那个时候我坚信自己手动上传+部署的方式会更加可靠，所以就一直没有实践，直到今天。</p>
+<p>这还真是印证了那句话啊，人不要盲目自信，还是得谦虚的学习。</p>
+<h1 id="事后总结"><a href="#事后总结" class="headerlink" title="事后总结"></a>事后总结</h1><p>表面上只是我怕更新证书麻烦，从原来的手动转向了自动，实际上这里面我有一些不成熟的想法。</p>
+<h2 id="启用https的必要性"><a href="#启用https的必要性" class="headerlink" title="启用https的必要性"></a>启用https的必要性</h2><p>放在几年前，我认为对于我这种个人用户来讲，https是没啥必要的。我的应用传的数据都是明文，无非就是搭个博客，做个网盘，这些东西都是可以暴露在网络上的，因此我不会特别重视网站用的是http还是https。</p>
+<p>但是时至今日，我也让我的应用改用https了。不可否认，从协议上来讲https的确要安全一点。但是我更多的考量是，用户在浏览我的页面时，看到“不安全”，那么它可能会感到疑惑。</p>
+<h2 id="有了SSL-TSL证书改用了https就安全了吗？"><a href="#有了SSL-TSL证书改用了https就安全了吗？" class="headerlink" title="有了SSL&#x2F;TSL证书改用了https就安全了吗？"></a>有了SSL&#x2F;TSL证书改用了https就安全了吗？</h2><p>我认为完全不是。我依旧认为安全与否和是否https、和有没有CA颁发的证书毛关系都没有。</p>
+<p>从协议层面来讲，我完全可以使用自签名证书，启用https。这样的话，流量传输的过程中，单纯协议上来讲，也是安全的（相较于http）。所以需要考虑的就是用自签名证书的网站，浏览器会报警告，甚至默认不显示。</p>
+<p>那就说说CA颁发的证书吧。CA证书和我的自签名证书，一个是受信任的机构给的，一个是我自己给的。前者挂在网上，各大主流浏览器会报安全，后者会报不安全。但是我仔细想想，这两个文件本质上是没有区别的呀。都是用https，我访问的站点并不会因为证书不同而有额外的风险，获取的内容也不会因为证书不同而不同。</p>
+<p>无非就是，自签名证书向用户说“信我，我真的是我”，而CA证书说“信我，CA机构可以证明我”。想起来竟然觉得有点可笑呢，也许这就是资本的力量。只有有钱（甚至不要钱），CA机构可以给任何站点发证书。用户相信这个很随意的CA机构，却不相信同样有着服务器完全控制权的我。</p>
+<p>嗷对了，我在知乎上看“自签名SSL证书有什么风险”，全是商家在打广告，说什么易受攻击啊、不受信任啊之类的。直到我看到了一条回复：</p>
+<img src="/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6%E9%A3%8E%E9%99%A9.webp" class="" title="我觉得在理">
+
+<h1 id="事后"><a href="#事后" class="headerlink" title="事后"></a>事后</h1><p>玩归玩，闹归闹。吐槽也吐槽够了，我自己这些肤浅的理解，大部分人根本不关心，也不在乎。我还是老老实实用的certbot吧！工作上的事儿，按照工作流程走就行。自己的理解，自己私下讨论就行。who care</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/04/%E6%AF%95%E4%B8%9A%E5%8D%8A%E5%B9%B4%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" rel="prev" title="毕业半年后的一些思考">
+                  <i class="fa fa-angle-left"></i> 毕业半年后的一些思考
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/08/26/%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F%E7%BA%BF%E4%B8%8B%E9%87%8E%E8%B5%9B%E8%B5%9B%E4%BA%8B%E7%AE%A1%E7%90%86%E8%AE%B0%E5%BD%95/" rel="next" title="英雄联盟线下野赛赛事管理记录">
+                  英雄联盟线下野赛赛事管理记录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+<hr>
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
+
+<div id="Comments"></div>
+
+<script>
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2024/03/27/%E6%8A%98%E8%85%BESSL-TLS%E8%AF%81%E4%B9%A6%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%92%8C%E6%80%9D%E7%BB%B4%E4%B8%8A%E7%9A%84%E8%BD%AC%E5%8F%98/',
+    pageTitle: '折腾SSL/TLS证书——流程和思维上的转变',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
+</script>
+</div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangKerman</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

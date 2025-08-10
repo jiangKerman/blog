@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="mask-icon" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp" color="#222">
+  <meta name="baidu-site-verification" content="code-eLttOMXOZX">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.css" integrity="sha256-zM8WXtG4eUn7dKKNMTuoWZub++VnSfaOpA/8PJfvTBo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangkerman.cc","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="需求：有一些很长很长的视频需要掐头去尾，怎么做？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剪视频用pr？某些时候ffmpeg更好用">
+<meta property="og:url" content="https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/index.html">
+<meta property="og:site_name" content="是一个变态的说">
+<meta property="og:description" content="需求：有一些很长很长的视频需要掐头去尾，怎么做？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-16T07:31:43.000Z">
+<meta property="article:modified_time" content="2025-04-16T07:31:43.000Z">
+<meta property="article:author" content="jiangKerman">
+<meta property="article:tag" content="视频处理">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/","path":"2025/04/16/剪视频用pr？某些时候ffmpeg更好用/","title":"剪视频用pr？某些时候ffmpeg更好用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>剪视频用pr？某些时候ffmpeg更好用 | 是一个变态的说</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">是一个变态的说</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">jiangKerman的收纳箱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-博客"><a href="/blog/" rel="section"><i class="fa fa-archive fa-fw"></i>博客</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">先说结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%BC%80%E5%A7%8B%E8%AE%B2%E6%95%85%E4%BA%8B"><span class="nav-number">2.</span> <span class="nav-text">然后开始讲故事</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BC%98%E5%8C%96%E5%90%97%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">还可以优化吗？</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangKerman"
+      src="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+  <p class="site-author-name" itemprop="name">jiangKerman</p>
+  <div class="site-description" itemprop="description">我是变态</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiangKerman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiangKerman" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jiangKerman@outlook.com" title="E-Mail → mailto:jiangKerman@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=2643233986&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;2643233986&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/109209979" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;109209979" rel="noopener me" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+      <meta itemprop="name" content="jiangKerman">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是一个变态的说">
+      <meta itemprop="description" content="我是变态">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="剪视频用pr？某些时候ffmpeg更好用 | 是一个变态的说">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          剪视频用pr？某些时候ffmpeg更好用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-04-16 15:31:43" itemprop="dateCreated datePublished" datetime="2025-04-16T15:31:43+08:00">2025-04-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>需求：有一些很长很长的视频需要掐头去尾，怎么做？</p>
+<span id="more"></span>
+
+<h1 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss 00:00:01 -to 01:37:37 -i long_video.mp4 -c copy output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>其中-ss和-to是视频起止时间。注意不是-t，-t是持续时间</p>
+<p>-c copy 不重新编码，直接拷贝视频流，不用重新编码。（几乎瞬间吧）</p>
+<h1 id="然后开始讲故事"><a href="#然后开始讲故事" class="headerlink" title="然后开始讲故事"></a>然后开始讲故事</h1><p>还不是这该死的打杂工作。需要把某迅会议的云录制视频掐头去尾，给其他的人的看。但是视频有个特点就是，很长，但是文件本身不算特别大（3个视频，共计4小时，500多M，也不知道腾讯会议的录制是怎么做的，而且清晰度也是有保证的）</p>
+<p>我一想，这简单啊！我脑补了一下流程👇</p>
+<ol>
+<li>视频丢进adobe pr</li>
+<li>创建三个序列，分别掐头去尾</li>
+<li>发送到media encoder转</li>
+</ol>
+<p>咋一看，没问题是吧，合情合理的操作嘛！</p>
+<p>但是实施起来就遇到了点问题。</p>
+<p>这tm转码出来文件大了很多，而且清晰度也得不到保证。问题在哪儿呢？待老夫瞅瞅原视频</p>
+<p>哦呦！牛了个B</p>
+<table>
+<thead>
+<tr>
+<th>时长</th>
+<th>宽高</th>
+<th>数据速率</th>
+<th>总比特率</th>
+<th>帧速率</th>
+<th>音频比特率</th>
+<th>音频采样频率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>02:15:27</td>
+<td>2560*1440</td>
+<td>190kbps</td>
+<td>316kbps</td>
+<td>30.30fps</td>
+<td>126kbps</td>
+<td>32kHz</td>
+</tr>
+<tr>
+<td>01:40:10</td>
+<td>2160*1080</td>
+<td>83kbps</td>
+<td>210kbps</td>
+<td>15.00fps</td>
+<td>126kbps</td>
+<td>32kHz</td>
+</tr>
+<tr>
+<td>01:11:13</td>
+<td>2160*1080</td>
+<td>121kbps</td>
+<td>248kbps</td>
+<td>30.03fps</td>
+<td>126kbps</td>
+<td>32kHz</td>
+</tr>
+</tbody></table>
+<p>确实牛逼，第二行视频，视频平均比特率只有83kbps，他妈的比音频还小。虽然录屏内容几乎全是静态的ppt，但是在保证质量的同时，能做到这种程度也已经很厉害了……何止厉害，简直无敌好吧！</p>
+<p>我自己用media encoder转出来，比特率1M，文件又大，画面也糊。</p>
+<p><hide>而且这三个视频如果用可变比特率两次重采样，要一个小时左右。用的是rtx4070 + i5 13600k</hide></p>
+<p>咋办嘛……所以就需要有一种不转码剪辑的方法。</p>
+<p>好耶！ffmpeg<hide>读研时候视频抠图导出帧处理的记忆开始攻击我</hide>，正是在下！</p>
+<p>如开头所说，加 -c copy 就可以实现。速度快，效果好（毕竟不用转码，无损嘛）完结</p>
+<h1 id="还可以优化吗？"><a href="#还可以优化吗？" class="headerlink" title="还可以优化吗？"></a>还可以优化吗？</h1><p>是的，还可以优化，我可以把音频比特率再降低到64kbps甚至32kbps（反正我用我的垃圾耳机也听不出来）👇</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只重新编码音频为 128kbps 的 AAC，视频部分保持不变。</span></span><br><span class="line">ffmpeg -i input.mp4 -c:v copy -c:a aac -b:a 32k output.mp4</span><br></pre></td></tr></table></figure>
+<p>那么，以表格中第二条视频为例，总比特率会降低到<em><strong>118kbps</strong></em>，时长<em><strong>1小时37</strong></em>分钟，文件大小<em><strong>85.6M</strong></em>,而且图像质量有保障。nb。</p>
+<p>腾讯会议，nb！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" rel="tag"># 视频处理</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/03/17/%E4%B8%80%E8%B5%B7%E6%9D%A5%E7%A7%8D%E5%B9%B3%E8%8F%87%E5%90%A7/" rel="prev" title="一起来种平菇吧~">
+                  <i class="fa fa-angle-left"></i> 一起来种平菇吧~
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/" rel="next" title="搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！">
+                  搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！ <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+<hr>
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
+
+<div id="Comments"></div>
+
+<script>
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/',
+    pageTitle: '剪视频用pr？某些时候ffmpeg更好用',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
+</script>
+</div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangKerman</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

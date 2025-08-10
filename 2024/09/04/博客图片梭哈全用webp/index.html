@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="mask-icon" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp" color="#222">
+  <meta name="baidu-site-verification" content="code-eLttOMXOZX">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.css" integrity="sha256-zM8WXtG4eUn7dKKNMTuoWZub++VnSfaOpA/8PJfvTBo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangkerman.cc","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="博客的图片太大了，加载慢，你问我怎么办？ 自己网络不好还能怎么办，办不了就不办咯！ ——古惑仔  骗你的，其实如果只是图片太大，梭哈WebP还是有很大优化空间的，尤其是老站。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客图片梭哈全用WebP!">
+<meta property="og:url" content="https://jiangkerman.cc/2024/09/04/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%A2%AD%E5%93%88%E5%85%A8%E7%94%A8webp/index.html">
+<meta property="og:site_name" content="是一个变态的说">
+<meta property="og:description" content="博客的图片太大了，加载慢，你问我怎么办？ 自己网络不好还能怎么办，办不了就不办咯！ ——古惑仔  骗你的，其实如果只是图片太大，梭哈WebP还是有很大优化空间的，尤其是老站。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-03T16:05:01.000Z">
+<meta property="article:modified_time" content="2025-08-09T16:26:04.179Z">
+<meta property="article:author" content="jiangKerman">
+<meta property="article:tag" content="代码">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jiangkerman.cc/2024/09/04/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%A2%AD%E5%93%88%E5%85%A8%E7%94%A8webp/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangkerman.cc/2024/09/04/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%A2%AD%E5%93%88%E5%85%A8%E7%94%A8webp/","path":"2024/09/04/博客图片梭哈全用webp/","title":"博客图片梭哈全用WebP!"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>博客图片梭哈全用WebP! | 是一个变态的说</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">是一个变态的说</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">jiangKerman的收纳箱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-博客"><a href="/blog/" rel="section"><i class="fa fa-archive fa-fw"></i>博客</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebP%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">2.</span> <span class="nav-text">WebP的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E5%81%9A%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">我的做法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E7%9C%81%E4%BA%8B%E5%84%BF%E7%9A%84%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">更省事儿的方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangKerman"
+      src="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+  <p class="site-author-name" itemprop="name">jiangKerman</p>
+  <div class="site-description" itemprop="description">我是变态</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiangKerman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiangKerman" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jiangKerman@outlook.com" title="E-Mail → mailto:jiangKerman@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=2643233986&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;2643233986&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/109209979" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;109209979" rel="noopener me" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangkerman.cc/2024/09/04/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%A2%AD%E5%93%88%E5%85%A8%E7%94%A8webp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+      <meta itemprop="name" content="jiangKerman">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是一个变态的说">
+      <meta itemprop="description" content="我是变态">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="博客图片梭哈全用WebP! | 是一个变态的说">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博客图片梭哈全用WebP!
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-04 00:05:01" itemprop="dateCreated datePublished" datetime="2024-09-04T00:05:01+08:00">2024-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-10 00:26:04" itemprop="dateModified" datetime="2025-08-10T00:26:04+08:00">2025-08-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>博客的图片太大了，加载慢，你问我怎么办？</p>
+<p>自己网络不好还能怎么办，<del>办不了就不办咯！</del> ——古惑仔</p>
+</blockquote>
+<p>骗你的，其实如果只是图片太大，梭哈WebP还是有很大优化空间的，尤其是老站。</p>
+<span id="more"></span>
+<h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><p>最近<hide>又</hide>在研究各种媒体格式的优劣，图片首当其冲。在这之前其实我已经用过WebP，但是那个时候浏览WebP文件还需要额外的图片浏览器(也有可能就是我当时用的windows太拉跨了），遂始终坚持着png大法（至少我没用jpg是吧）。</p>
+<p>但是之前的一篇博客中，原图太大了，图片已经成为了博客加载的瓶颈。然后在日复一日的窥视<a target="_blank" rel="noopener" href="https://keshane.moe/">keshane</a>和<a target="_blank" rel="noopener" href="https://nova.moe/">nova</a>等<hide>我单恋的</hide>好友的博客中，我意识到我早该尝试WebP了。为什么不呢？</p>
+<h1 id="WebP的优势"><a href="#WebP的优势" class="headerlink" title="WebP的优势"></a>WebP的优势</h1><p>那我其实也不是专家，我只能综合我各方面了解到的信息，以及一些自己的实践结论，告诉你：如果对比png、jpg、bmp、gif这些常见格式的话，全是优势，梭哈用WebP就对了。</p>
+<p>一句话说就是，同等的图片质量下，WebP的文件大小有很可观的优势。对于WebP各项参数感兴趣的参考一下<a target="_blank" rel="noopener" href="https://blog.kaciras.com/article/24/analyze-WebP-encode-options">这篇文章。</a></p>
+<h1 id="我的做法"><a href="#我的做法" class="headerlink" title="我的做法"></a>我的做法</h1><p>很直白，把站点的所有资源图片都替换为WebP。但是这里有一个小细节，某些情况下转为WebP，无损模式的图片大小甚至比有损模式还小。</p>
+<blockquote>
+<p>如果你阅读了官网上对 WebP 的技术细节的描述 就会发现它的有损转换过程对于噪声多、边缘柔和的图片处理能力很强，而对于图形和文字就不合适了。不过 WebP 的无损无论是算法还是封装都优于传统的 PNG 格式，也当然有着更高的压缩率。</p>
+<p>综上所述，无损模式对于某些类型图片是优于有损的，但图片属于哪类并不好检测，这里可以根据大小来判断。<strong>一个可行的方案是将一张图同时使用有损和无损压缩，然后选择小的那个。</strong></p>
+</blockquote>
+<p>确实，有很多截图就是无损模式反而比有损模式占用的空间小（当然图片质量也更好）。so，我自己在做WebP格式转化的时候采用就是，有损无损都先转一遍，然后选择小的那个。缺点嘛，就是每张图片都需要做两次转换。</p>
+<h1 id="更省事儿的方案"><a href="#更省事儿的方案" class="headerlink" title="更省事儿的方案"></a>更省事儿的方案</h1><p>那当然是用<a target="_blank" rel="noopener" href="https://nova.moe/">nova</a>提供的<a target="_blank" rel="noopener" href="https://webp.se/">服务</a>啦~真的很方便、快捷。强推一波。</p>
+<p>在hexo下的体验大概就是，装个，几行配置，就完事儿了（你的站点瓶颈已经就不是图片了）。<a target="_blank" rel="noopener" href="https://docs.webp.se/WebP-cloud/access/">文档</a>很干净，可以自己试试。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这样真的可以很大程度上解决图片加载慢的问题，就我自己的博客而言，整体的图片文件大小只有原来的20%。</p>
+<p>另外，愿工作中没有jpg。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BB%A3%E7%A0%81/" rel="tag"># 代码</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/26/%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F%E7%BA%BF%E4%B8%8B%E9%87%8E%E8%B5%9B%E8%B5%9B%E4%BA%8B%E7%AE%A1%E7%90%86%E8%AE%B0%E5%BD%95/" rel="prev" title="英雄联盟线下野赛赛事管理记录">
+                  <i class="fa fa-angle-left"></i> 英雄联盟线下野赛赛事管理记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/09/06/%E7%94%A8%E5%BB%89%E4%BB%B7%E7%9A%84%E6%96%B9%E6%A1%88%E6%9D%A5%E5%8A%A0%E9%80%9F%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E7%9A%84nginx%E8%BD%AC%E5%8F%91/" rel="next" title="用廉价的方案来加速博客访问——简单的nginx转发">
+                  用廉价的方案来加速博客访问——简单的nginx转发 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+<hr>
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
+
+<div id="Comments"></div>
+
+<script>
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2024/09/04/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%A2%AD%E5%93%88%E5%85%A8%E7%94%A8webp/',
+    pageTitle: '博客图片梭哈全用WebP!',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
+</script>
+</div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangKerman</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

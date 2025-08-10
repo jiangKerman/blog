@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="mask-icon" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp" color="#222">
+  <meta name="baidu-site-verification" content="code-eLttOMXOZX">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.css" integrity="sha256-zM8WXtG4eUn7dKKNMTuoWZub++VnSfaOpA/8PJfvTBo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangkerman.cc","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="也许我应该写点东西来记录一下自己曾用过的工具链，说不定哪天饭碗丢了找工作有用😀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(我)现阶段[广义上的]工具链指北：贯穿一切的锤子们">
+<meta property="og:url" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/index.html">
+<meta property="og:site_name" content="是一个变态的说">
+<meta property="og:description" content="也许我应该写点东西来记录一下自己曾用过的工具链，说不定哪天饭碗丢了找工作有用😀">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/hp504.webp">
+<meta property="og:image" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/FP-30_WH_gal.webp">
+<meta property="og:image" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/fp-18_gallery_angle2.webp">
+<meta property="og:image" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/%E9%9B%85%E4%BE%9D%E5%88%A9d1500.webp">
+<meta property="og:image" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/%E5%8D%A1%E7%A5%96%E7%AC%9B.webp">
+<meta property="article:published_time" content="2025-06-03T08:19:06.000Z">
+<meta property="article:modified_time" content="2025-06-03T08:19:06.000Z">
+<meta property="article:author" content="jiangKerman">
+<meta property="article:tag" content="生活">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/hp504.webp">
+
+
+<link rel="canonical" href="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/","path":"2025/06/03/我现阶段广义上的工具链指北：贯穿一切的锤子们/","title":"(我)现阶段[广义上的]工具链指北：贯穿一切的锤子们"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>(我)现阶段[广义上的]工具链指北：贯穿一切的锤子们 | 是一个变态的说</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">是一个变态的说</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">jiangKerman的收纳箱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-博客"><a href="/blog/" rel="section"><i class="fa fa-archive fa-fw"></i>博客</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="nav-number">1.</span> <span class="nav-text">开始之前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">代码篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F%E6%97%B6%E4%BB%A3%E7%9A%84%E6%88%91%E7%9A%84%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF"><span class="nav-number">2.1.</span> <span class="nav-text">学生时代的我的开发路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F2-0%E6%97%B6%E4%BB%A3%E7%9A%84%E7%A7%91%E7%A0%94%E8%B7%AF%E7%BA%BF"><span class="nav-number">2.2.</span> <span class="nav-text">学生2.0时代的科研路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E4%B8%8A"><span class="nav-number">2.3.</span> <span class="nav-text">工作环境上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%B8%E9%B1%BC%E7%AF%87"><span class="nav-number">3.</span> <span class="nav-text">摸鱼篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%83%B3%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%9A%84%E6%97%B6%E5%80%99"><span class="nav-number">3.1.</span> <span class="nav-text">不想工作的的时候</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E6%95%A3%E4%B8%80%E4%B8%8B%E6%80%9D%E7%BB%B4%EF%BC%9A%E6%90%9E%E6%9C%BA%E7%9A%84%E6%97%B6%E5%80%99"><span class="nav-number">3.2.</span> <span class="nav-text">发散一下思维：搞机的时候</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E6%B4%BB%E7%AF%87"><span class="nav-number">4.</span> <span class="nav-text">生活篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E6%B2%99%E9%9B%95%E8%A7%86%E9%A2%91%E7%9A%84%E6%97%B6%E5%80%99"><span class="nav-number">4.1.</span> <span class="nav-text">做沙雕视频的时候</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E7%90%B4%E7%9A%84%E6%97%B6%E5%80%99"><span class="nav-number">4.2.</span> <span class="nav-text">练琴的时候</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%91%E8%BD%A6%E7%9A%84%E6%97%B6%E5%80%99"><span class="nav-number">4.3.</span> <span class="nav-text">骑车的时候</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD%E2%80%A6%E2%80%A6"><span class="nav-number">5.</span> <span class="nav-text">未完待续……</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangKerman"
+      src="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+  <p class="site-author-name" itemprop="name">jiangKerman</p>
+  <div class="site-description" itemprop="description">我是变态</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiangKerman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiangKerman" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jiangKerman@outlook.com" title="E-Mail → mailto:jiangKerman@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=2643233986&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;2643233986&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/109209979" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;109209979" rel="noopener me" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+      <meta itemprop="name" content="jiangKerman">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是一个变态的说">
+      <meta itemprop="description" content="我是变态">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="(我)现阶段[广义上的]工具链指北：贯穿一切的锤子们 | 是一个变态的说">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          (我)现阶段[广义上的]工具链指北：贯穿一切的锤子们
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-03 16:19:06" itemprop="dateCreated datePublished" datetime="2025-06-03T16:19:06+08:00">2025-06-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>也许我应该写点东西来记录一下自己曾用过的工具链，说不定哪天饭碗丢了找工作有用😀</p>
+<span id="more"></span>
+<h1 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h1><p>我本来想把这篇内容做成一个系列，比如什么👇</p>
+<ol>
+<li>代码篇</li>
+<li>摸鱼篇</li>
+<li>生活篇</li>
+</ol>
+<p>但是这样各章的篇幅长度就极度不一致，所以我决定把他们全部揉在一起！那么现在就开始吧！</p>
+<p>哦对了，你可以根据左边（或者手机上的顶部收缩栏？）来查看自己感兴趣的。</p>
+<h1 id="代码篇"><a href="#代码篇" class="headerlink" title="代码篇"></a>代码篇</h1><blockquote>
+<p>每个人都有自己熟悉的开发工具，并把其他工具的用户都当作异端邪教，巴不得把他们烧死。——我刚才说的</p>
+</blockquote>
+<p>我是真的很赞同我刚才说的话👆。因为我就是这样想的XD。本文不做理性讨论，全是我自己的记录？或者说输出，供君一乐罢了。</p>
+<h2 id="学生时代的我的开发路线"><a href="#学生时代的我的开发路线" class="headerlink" title="学生时代的我的开发路线"></a>学生时代的我的开发路线</h2><p>学生时代的我，那都是很久远了。主要集中在2017-2018年（我都这么老了？），那个时候，其实没多大的选择，主要是自己能力不行，老师说什么就是什么hhh。</p>
+<p>那个时代的我，用的是<hide>又臭又长的</hide>java为主力语言。先看个概览👇</p>
+<ol>
+<li>后端用java<ol>
+<li>用springBoot + 内置的maven？ 手动管理包</li>
+</ol>
+</li>
+<li>前端用……Thymleaf（对不起我只能这样对标了）<ol>
+<li>然后本地导入MDBootstrap</li>
+<li>不用vue或者react等玩意儿，所以我一天能写一万行html</li>
+<li>复用组件？不存在的，我直接复制粘贴，全局替换。感谢jetbrain。</li>
+</ol>
+</li>
+<li>数据库我只会mysql</li>
+</ol>
+<p>以我现在的眼光来看，再让我在springBoot下写java，比杀了我还难受。好在我现在应该不会再碰这个玩意儿了。</p>
+<h2 id="学生2-0时代的科研路线"><a href="#学生2-0时代的科研路线" class="headerlink" title="学生2.0时代的科研路线"></a>学生2.0时代的科研路线</h2><p>天杀的我搞什么图像处理人工智能啊，技术能力没学到一点，讲故事的能力有了质的飞跃！这又何尝不是学有所获呢？</p>
+<p>再细一点的话，读研的三年搞深度抠图（就是把图片的背景图去掉，模型的输出是一张α通道图）。这三年完全没有写实际的工具代码，但是也有一些深度学习方面的工具👇</p>
+<ol>
+<li>主力语言是python<ol>
+<li>而且是在windows环境下</li>
+<li>从tensorflow转到了pytorch</li>
+</ol>
+</li>
+<li>前端是……不好意思不用写前端了</li>
+<li>数据库用……不好意思啥是数据库？<ol>
+<li>但是会用到各种<hide>标注得一坨屎的</hide>数据库，比如<a target="_blank" rel="noopener" href="https://cocodataset.org/#home">coco</a>啊<a target="_blank" rel="noopener" href="https://image-net.org/download.php">imagenet</a>啊等</li>
+</ol>
+</li>
+</ol>
+<p>好像没啥可写的了……毕竟这三年装上疫情，再加上我抽空耍朋友练琴，在实验室的时间屈指可数。我摊牌了我就是混过去的😕</p>
+<h2 id="工作环境上"><a href="#工作环境上" class="headerlink" title="工作环境上"></a>工作环境上</h2><p>有啥好说的，开始当牛马啦！哈哈。</p>
+<p>现在我用啥？👇</p>
+<ol>
+<li>做服务就需要后台，后台我现在用python<ol>
+<li>最开始用<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/">django</a>。但是发现前后端分离后django的很多东西我都用不上了，所以最后转向了fastapi</li>
+</ol>
+</li>
+<li>有了后台还需要用户交互，前端框架用<a target="_blank" rel="noopener" href="https://cn.vuejs.org/">vue3</a><ol>
+<li>说来惭愧，我并没有用过vue2。我一来就是用的vue3的推荐的组合式api，所以有一些<hide>偏激的老东西</hide>程序员激励抵触我现在的写法。哦对了我怀疑他们是写java的😀</li>
+<li>UI库嘛，暂定<a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/">elementPlus</a>。其实其他的也在用，反正倒差不差。哦对了<a target="_blank" rel="noopener" href="https://www.antdv.com/components/overview-cn/">antDesignVue</a>和element的文档做得对我来说几乎一样，我都怀疑这是同一批人改改配色拿了两份钱。</li>
+<li>然后就是vue3官方的工具链了，pinia啊啥啥啥的，跟文档一致就行。</li>
+<li>哦对了，我是个半吊子，我用JavaScript不用typescript，能不用就不不用！好不容易不用申明类型了嘻嘻嘻。</li>
+</ol>
+</li>
+<li>缓存用……from cachetools import TTLCache<ol>
+<li>别说用什么redis。你就是培训班出来忽悠人的。还是那句话！小项目活下去才是第一步。你现在有五十万个用户吗？</li>
+</ol>
+</li>
+<li>产生了数据，数据库sqlite<ol>
+<li>嘲笑我？我接受你的所有嘲笑，如果你真的认真看完过sqlite的说明，以及自己做过测试的话。</li>
+<li>曾经我也（被迫）用过mongodb，结论就是，谁再让我接管或者新开发用mongodb的项目，我只能引咎辞职，贵公司另请高明。<ol>
+<li>并不是说mongodb不好，而是说mongodb的文档结构可以乱到一种艺术的程度。一个组织得差的mongodb数据库，能做到除了开发人员谁都看不懂。（可能我还保守了）</li>
+<li>sqlserver太笨重，不值。而且我也知道，很多时候写得东西就是个demo，过去了就过去了，不值得大费周章。</li>
+<li>mysql好是好，但是我深深的知道，<em><strong>很多时候写得东西就是个demo，过去了就过去了，不值得小费周章。</strong></em></li>
+</ol>
+</li>
+<li>所以我用sqlite的原因只有一个：方便。别跟我瞎扯什么效率、优化、并发。您的产品有五十万个用户吗？您配吗？</li>
+</ol>
+</li>
+<li>部署与更新，集成用docker……吗？<ol>
+<li>曾经是的，我也有过能让别人一行命令启动即用的想法。直到docker被东方大区局域网剔除。</li>
+<li>python新建虚拟环境很快，sqlite也不用额外开服务了。redis我也不用了。nginx配置简单易懂。那我还折腾啥？直接源码启动！</li>
+</ol>
+</li>
+<li>版本多了，代码管理用git<ol>
+<li>没啥好说的，我没用过其他的（点名SVN）</li>
+</ol>
+</li>
+<li>难免要与服务器打交道，运维用mobaxterm<ol>
+<li>其实最开始是用winscp + 命令行下的ssh。挺好用的，但是后来发现，mobaxterm集成真香。</li>
+<li>更不用说<a target="_blank" rel="noopener" href="https://mobaxterm.mobatek.net/">mobaxterm</a>可以跳板机连一切，在此之前我还没找到更简单的跳板机连接内网服务器的方法。</li>
+</ol>
+</li>
+<li>一堆形同虚设的安全策略烦得很。我直接穿透（留后门）用frp<ol>
+<li>用作连接第一台内网服务器……</li>
+<li>别跟我扯什么安全，贵公司密码用word管理，微信传输，您配吗？</li>
+</ol>
+</li>
+<li>科学上网……用某黑猫吧。<ol>
+<li>倒回去几年也曾自己搭过shadowsocks，也用过shadowsocksr、v2ray之类的。后来发现，买别人的服务，真香。</li>
+</ol>
+</li>
+</ol>
+<p>我知道，放在绝大多数的环境下，我都是异端邪教应当被烧死的那种，可能连程序员都算不上的臭写代码的。不过，我写得爽。你打我？我变量用和数据库列名还用中文呢！略略略。</p>
+<h1 id="摸鱼篇"><a href="#摸鱼篇" class="headerlink" title="摸鱼篇"></a>摸鱼篇</h1><p>指和工作不强相关的东西。</p>
+<h2 id="不想工作的的时候"><a href="#不想工作的的时候" class="headerlink" title="不想工作的的时候"></a>不想工作的的时候</h2><p>来重点了！</p>
+<ol>
+<li>首先要选好摸鱼工具，通常来讲就是浏览器。我用edge（windows平台下省事儿）<ol>
+<li>也是有讲究的，多开无痕模式 <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>n</kbd>。避免浏览记录暴露了。分窗口也好管理。</li>
+</ol>
+</li>
+<li>工作摸鱼的界面一定要分开！新建桌面！启动<ol>
+<li>windows下可以 <kbd>ctrl</kbd> + <kbd>win </kbd>+ <kbd>D</kbd>新建桌面，然后 <kbd>ctrl</kbd> + <kbd>win </kbd>+ <kbd>←/→ </kbd>切换。</li>
+<li>一定要在“调整windows的外观和性能”把“在最大化和最小化时显示窗口”关了，被抓包的时候，成败就在这半秒！</li>
+</ol>
+</li>
+<li>摸鱼环境配置结束！选择你要浏览的页面<ol>
+<li>知乎。大学辅导员让我多刷知乎，所以我就把知乎耍烂了。</li>
+<li>淘宝京东闲鱼。现在闲鱼网页端又复活啦哈哈！</li>
+<li>bilibili。真正寂寞的人，就算看无声视频也能很开心的。</li>
+</ol>
+</li>
+<li>物理层面的摸鱼<ol>
+<li>多接水，多上厕所。加快代谢！</li>
+<li>多起来活动胫骨，对着窗外若有所思。神仙来了我也是工作累了调节心情而不是脑壳放空。</li>
+</ol>
+</li>
+</ol>
+<p>好像，摸鱼跟工具链不太配，目前没想到有啥好写的。</p>
+<h2 id="发散一下思维：搞机的时候"><a href="#发散一下思维：搞机的时候" class="headerlink" title="发散一下思维：搞机的时候"></a>发散一下思维：搞机的时候</h2><p>指捣鼓一下计算机（硬件）的时候。</p>
+<ol>
+<li>出于某些考虑（系统坏了或者装着玩反正都是工作时间），需要重装系统<ol>
+<li>刻录镜像文件就用<del>utraISO</del> 用<a target="_blank" rel="noopener" href="https://rufus.ie/zh/">rufus</a>！我个人觉得比utraiso好用。</li>
+</ol>
+</li>
+<li>下载工具用迅雷<ol>
+<li>呜呜呜别骂我，我现在真觉得新版本迅雷好用</li>
+</ol>
+</li>
+<li>拆机用螺丝刀。<ol>
+<li>当你显卡太长了可选用锤子 + 锯子的组合</li>
+<li>备注：锯机箱，不是显卡！</li>
+</ol>
+</li>
+<li>装机用U盘（这不是废话）</li>
+<li>无线网卡用usb的，千万别用m2的，麻烦得要死。</li>
+<li>打驱动用……windows自带的更新，怎么方便怎么来</li>
+<li>破解用HEU_KMS_Activator_v42.1.0这坨东西。<ol>
+<li>当然不用也行，微软工程师都说了激活与否没有啥影响。</li>
+</ol>
+</li>
+</ol>
+<p>应该够你把机器恢复了吧。</p>
+<h1 id="生活篇"><a href="#生活篇" class="headerlink" title="生活篇"></a>生活篇</h1><p>指生活</p>
+<h2 id="做沙雕视频的时候"><a href="#做沙雕视频的时候" class="headerlink" title="做沙雕视频的时候"></a>做沙雕视频的时候</h2><p>某些时候想要以视频的形式记录一些东西，这里就涉及到一些媒体处理的工具们。</p>
+<ol>
+<li>视频采集：当然就是手机、运动相机、obs录屏。对我来说没有其他的了。</li>
+<li>处理之前需要转码。<ol>
+<li>通常来讲，手机相机导出的不需要转码。</li>
+<li>obs输出的mvk直接用obs录像转封装。</li>
+<li>某些视频轻度损坏的文件用potplayer内录。（特指其他诸如ffmpeg的软件都打不开，只有potplayer能播放的情况下）</li>
+<li>其他转码需求就用adobe media encoder。</li>
+<li>或者说，<a href="/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8">某些情况下</a>可以直接用ffmpeg。</li>
+</ol>
+</li>
+<li>然后可以导入adobe premiere pro处理视频<ol>
+<li>新版adobe creative cloud装软件似乎又要麻烦一些了。</li>
+<li>破解当然是用<a target="_blank" rel="noopener" href="https://www.cybermania.ws/apps/adobe-genp/">GenP Universal Patch 3.6.4</a></li>
+</ol>
+</li>
+<li>音频处理当然是用adobe audition。和premiere联动，很舒服。</li>
+<li>同样的图片也用adobe photoshop。</li>
+</ol>
+<blockquote>
+<p>其实绝大部分情况就是丢进pr里面随便切切片罢了。——我说的</p>
+</blockquote>
+<h2 id="练琴的时候"><a href="#练琴的时候" class="headerlink" title="练琴的时候"></a>练琴的时候</h2><blockquote>
+<p>这有什么好说的呢？算了水一水吧。</p>
+</blockquote>
+<p>小汤拜厄车尔尼，哈农巴赫李斯特！好好练琴！一天不练自己知道，两天不练同行知道，三天不练听众知道，好好看好好学好好练吧我嘞！</p>
+<ol>
+<li>练琴用电钢琴，因为我只有电钢琴。<ol>
+<li>工作日用自己2020年暑假买的二手罗兰fp30</li>
+<li>周末在我<del>女朋友</del>老婆家用闲鱼全新的2023年后买的罗兰fp18</li>
+<li>回家（指我爸家）的时候用2016年？买的罗兰hp504（早已停产）</li>
+<li>妈的我的琴怎么越买越低端啊</li>
+</ol>
+</li>
+<li>上课的时候……有啥就用啥吧。</li>
+<li>累了倦了就拿上我的雅依利d-1500开始瞎几把扫弦。<ol>
+<li>看情况也可以卡祖笛扰民 + 恶心自己。</li>
+</ol>
+</li>
+</ol>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/hp504.webp" class="" title="最初买的hp504"></div><div class="group-picture-column"><img src="/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/FP-30_WH_gal.webp" class="" title="后来二手的fp30"></div><div class="group-picture-column"><img src="/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/fp-18_gallery_angle2.webp" class="" title="工作后买的fp18"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/%E9%9B%85%E4%BE%9D%E5%88%A9d1500.webp" class="" title="本科时买的破吉他"></div><div class="group-picture-column"><img src="/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/%E5%8D%A1%E7%A5%96%E7%AC%9B.webp" class="" title="还有我最爱的卡祖笛！"></div></div></div>
+
+<blockquote>
+<p>只有无聊的人才能成为一代宗师。——我说的，郎朗来了我也不改口。</p>
+</blockquote>
+<h2 id="骑车的时候"><a href="#骑车的时候" class="headerlink" title="骑车的时候"></a>骑车的时候</h2><blockquote>
+<p>为什么不飙车开超跑呢？因为我没钱。</p>
+</blockquote>
+<p>飙车的前提是……要有一辆……摩托车。选定你的趁手工具！</p>
+<ol>
+<li>闲鱼上1000块到手的zs-150-48a街车，只要跑在路上不散架就是赚。</li>
+<li>买一个外卖箱子放后座，这样路上的车才会忌惮你三分。</li>
+<li>头盔上装一个摄像头，一定要在头盔顶部而不是下巴，攻击性越强越好！</li>
+<li>大灯肯定要改，你也不想看不清路摔成残废吧。</li>
+<li>背包里面一定要带一个战术手电<ol>
+<li>可以敲碎别人的车窗</li>
+<li>可以发出报警声，震慑敌方单位。</li>
+<li>可以伪造红蓝警灯</li>
+<li>万一乡郊野外的抛锚了，运气好你还可以打个手电徒步到有人烟的地方。</li>
+</ol>
+</li>
+</ol>
+<p>这里我觉得我可以单开一文来讲，讲我是如何攻击性驾驶，以及如何处理某几个惊现时刻的。</p>
+<hr>
+<h1 id="未完待续……"><a href="#未完待续……" class="headerlink" title="未完待续……"></a>未完待续……</h1><p>本文持续更新，看心情</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag"># 生活</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/" rel="prev" title="搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！">
+                  <i class="fa fa-angle-left"></i> 搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/06/28/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%90%8E%E8%A6%81%E5%81%9A%E5%95%A5%EF%BC%9F%E9%82%A3%E5%8F%AF%E5%A4%9A%E4%BA%86%E5%8E%BB%E4%BA%86/" rel="next" title="重装系统后要做啥？那可多了去了">
+                  重装系统后要做啥？那可多了去了 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+<hr>
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
+
+<div id="Comments"></div>
+
+<script>
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/',
+    pageTitle: '(我)现阶段[广义上的]工具链指北：贯穿一切的锤子们',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
+</script>
+</div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangKerman</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

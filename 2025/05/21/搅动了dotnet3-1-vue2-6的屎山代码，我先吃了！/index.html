@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp">
+  <link rel="mask-icon" href="/%E8%B5%84%E6%BA%90%E4%BB%AC/%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE/%E5%A4%B4%E5%83%8F.webp" color="#222">
+  <meta name="baidu-site-verification" content="code-eLttOMXOZX">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.css" integrity="sha256-zM8WXtG4eUn7dKKNMTuoWZub++VnSfaOpA/8PJfvTBo=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangkerman.cc","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="如果领导要你改一个无人维护的四年前的项目，而且您完全不熟悉语法，如何应对？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！">
+<meta property="og:url" content="https://jiangkerman.cc/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/index.html">
+<meta property="og:site_name" content="是一个变态的说">
+<meta property="og:description" content="如果领导要你改一个无人维护的四年前的项目，而且您完全不熟悉语法，如何应对？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-21T07:43:26.000Z">
+<meta property="article:modified_time" content="2025-05-21T07:43:26.000Z">
+<meta property="article:author" content="jiangKerman">
+<meta property="article:tag" content="代码">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jiangkerman.cc/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangkerman.cc/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/","path":"2025/05/21/搅动了dotnet3-1-vue2-6的屎山代码，我先吃了！/","title":"搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！ | 是一个变态的说</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">是一个变态的说</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">jiangKerman的收纳箱</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-博客"><a href="/blog/" rel="section"><i class="fa fa-archive fa-fw"></i>博客</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%9A%84%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">故事的起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%93%E6%97%B6%E7%9A%84%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E8%B7%91%E8%B7%AF%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">当时的开发人员跑路了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Z-%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BA%90%E7%A0%81%E4%B8%8D%E6%98%AF%E6%9C%80%E6%96%B0%E7%9A%84"><span class="nav-number">3.</span> <span class="nav-text">Z 系统的源码不是最新的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c-%E5%92%8Cvue2%E6%88%91%E4%B8%8D%E4%BC%9A%E5%91%80"><span class="nav-number">4.</span> <span class="nav-text">c#和vue2我不会呀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%9A%84%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">故事的最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangKerman"
+      src="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+  <p class="site-author-name" itemprop="name">jiangKerman</p>
+  <div class="site-description" itemprop="description">我是变态</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiangKerman" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiangKerman" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jiangKerman@outlook.com" title="E-Mail → mailto:jiangKerman@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=2643233986&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;2643233986&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/109209979" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;109209979" rel="noopener me" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangkerman.cc/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/09/12/Z4GjwWSJaEOh3nD.jpg">
+      <meta itemprop="name" content="jiangKerman">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="是一个变态的说">
+      <meta itemprop="description" content="我是变态">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！ | 是一个变态的说">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-05-21 15:43:26" itemprop="dateCreated datePublished" datetime="2025-05-21T15:43:26+08:00">2025-05-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>如果领导要你改一个无人维护的四年前的项目，而且您完全不熟悉语法，如何应对？</p>
+<span id="more"></span>
+<blockquote>
+<p>总算是把这坨屎<hide>部分</hide>消化了……     ——kerman</p>
+</blockquote>
+<h1 id="故事的起因"><a href="#故事的起因" class="headerlink" title="故事的起因"></a>故事的起因</h1><p>很简单，我司接到了一个项目，需要修改 Z 系统，然后再收一笔钱……就是这样。那么有什么问题呢？</p>
+<p>问题就是👇：  </p>
+<ol>
+<li>Z 系统是四年前由不知道谁开发的（那几个人已经跑路了）。</li>
+<li>Z 系统的源码和现在生产环境的并不一样。</li>
+<li>Z 系统用到了先进的c#（.net3.1) + vue2，好巧不巧这俩我都没碰过。</li>
+</ol>
+<p>😔还能咋办嘛。钱难挣屎难吃，要生活嘞嘛……挨个解决呗。解决方案嘛，就……发挥自己的主观能动性呗。</p>
+<h1 id="当时的开发人员跑路了"><a href="#当时的开发人员跑路了" class="headerlink" title="当时的开发人员跑路了"></a>当时的开发人员跑路了</h1><p>笑死🤣这是<hide>对领导来说</hide>最简单的问题了。上一批跑路了，你（指我）来改不就行了。</p>
+<p>好，问题1解决。</p>
+<h1 id="Z-系统的源码不是最新的"><a href="#Z-系统的源码不是最新的" class="headerlink" title="Z 系统的源码不是最新的"></a>Z 系统的源码不是最新的</h1><p>准确的说，我夸张了。其实c#的代码是新的，只不过vue2的代码是老旧的。</p>
+<p>老旧到什么程度呢？也就几乎不可用的状态吧。</p>
+<p>那还不是得改啊，还能怎么办，反正代码和我总要跑一个。但是我现在不好跑……</p>
+<p>两个方案👇   </p>
+<ol>
+<li>我凭着感觉，在老旧的代码上修修补补。</li>
+<li>找当时的开发人员要一份代码库😅</li>
+</ol>
+<p>一目了然，方案一就不是我这种混子干的事儿。方案二呢，不知道领导出于何种考虑，也放弃了。然后领导给出了方案三：反编译vue2代码。</p>
+<p>我承认，我年纪轻，我涉猎不广泛，我愣住了。但是还是得答应下来啊，要吃饭的嘛……但是你说好巧不巧，vue2这坨老东西，还真给我留了一线生机。（说白了就是vue2默认打包会存在源码泄露的问题😓）</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/625650481">可以参考这篇文章</a>，以及我和chatgpt的一些对话👇</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">有 <span class="code">`.js.map`</span> 文件（即 Source Map）的时候，<span class="strong">**反编译 Vue 2 项目时可以非常接近开发时的源码**</span>，但仍存在一些<span class="strong">**细微偏差**</span>，以下是详细解释：</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">### ✅ 有 `.js.map` 的情况下，可以得到什么：</span></span><br><span class="line"></span><br><span class="line">Source Map 文件的作用是将<span class="strong">**编译/打包后的代码**</span>映射回<span class="strong">**原始源码（通常是 ES6+、TypeScript、SFC 等）的位置**</span>。有了它：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**还原出的 JavaScript 结构和逻辑接近原始代码**</span>，变量名、函数名、模块结构基本一致。</span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**Vue 单文件组件（.vue 文件）可被还原为 JS、模板、样式三部分的拼接结构**</span>。</span><br><span class="line"><span class="bullet">3.</span> 使用如 [<span class="string">source-map-explorer</span>](<span class="link">https://www.npmjs.com/package/source-map-explorer</span>)、\[webpack-bundle-analyzer] 或 DevTools 都可以对照还原源码。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">### ⚠️ 仍然可能存在的偏差：</span></span><br><span class="line"></span><br><span class="line">| 项目     | 偏差原因                                  | 举例说明                                       |</span><br><span class="line">| ------ | ------------------------------------- | ------------------------------------------ |</span><br><span class="line">| 注释、空行  | 编译时通常被删除                              | 代码中不会还原开发时的注释说明                            |</span><br><span class="line">| 文件结构   | webpack 打包时可能将多个模块合并                  | 不容易看出模块物理位置（路径）                            |</span><br><span class="line">| 模板还原   | <span class="code">`.vue`</span> 文件的 template 部分编译成渲染函数         | 难以100%还原 SFC 中的 HTML 模板原貌                  |</span><br><span class="line">| 样式处理   | 使用了 CSS Modules、预处理器如 SCSS            | 还原的样式可能丢失原变量、嵌套关系                          |</span><br><span class="line">| 命名略有变化 | 如开启了 scope 或 minify（但有 map 文件可以恢复大部分） | 比如变量从 <span class="code">`let userInfo`</span> 变成 <span class="code">`let a`</span>，但有 map 会还原 |</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">### 🔐 开发者如何保护源代码？</span></span><br><span class="line"></span><br><span class="line">如果不希望源码被轻易还原，常见做法包括：</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 发布前 <span class="strong">**不生成或不发布 `.js.map` 文件**</span></span><br><span class="line"><span class="bullet">*</span> 开启 <span class="strong">**代码混淆、压缩**</span></span><br><span class="line"><span class="bullet">*</span> 使用 Vue3 并结合 WebAssembly 或后端渲染</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section">### ✅ 总结：</span></span><br><span class="line"></span><br><span class="line">有 <span class="code">`.js.map`</span> 文件时，<span class="strong">**反编译结果和开发源码高度接近，接近源码泄露的程度**</span>，尤其是 JS 逻辑。如果要保护源码，发布时务必<span class="strong">**去掉 `.map` 文件**</span>。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>显而易见的，当时的那几个兄弟直接默认就把 *.js.map文件放到了生产环境，我又可以操作了。接下来就是按照文档教程，拿到反编译后的文件就行了。</p>
+<p>嗷顺便说一句，他们当时的打包方式是，两个vue2项目的dist文件夹直接合并，并修改index.html文件名。nb，我还得根据更新时间手动分开两套源码。</p>
+<h1 id="c-和vue2我不会呀"><a href="#c-和vue2我不会呀" class="headerlink" title="c#和vue2我不会呀"></a>c#和vue2我不会呀</h1><p>vue2还好，从vue3切到vue2，我个人的直观理解就是从组合式api切换到了选项式api，至于其他的细节，我也用不到。</p>
+<p>那么c#咋办？我一个java都懒得用的人，看到c#真是一头大。欸，别急，我先别急，领导发力了。领导说他来改c#。好，妙！那我自然要衬托出领导的英明神武，配合即可。然后嘛，就是解决代码层面的问题。</p>
+<p>其实改改前端也没有啥大的问题，原项目用的是ant-design-vue，直接对着文档来，也算是顺手，改前端的时候也没遇到什么大问题，只不过搅动了屎山，肯定要再拉一坨，不然对不起我自己。</p>
+<hr>
+<p>就比如把，原项目请求数据用的是 axios 二次封装的。好好好，你封装得很好，但是我不会看。已有的功能我不碰，新的功能我直接用fetch，写在.vue里面，主打一个不给后来人（有可能是我自己）留后路。想改？好哇，您慢慢排查去吧！</p>
+<blockquote>
+<p>嗷更新一下，其实也不是故意的，就是单纯的不想看他封装的东西，觉得用fetch顺手一些，虽然后来我也按照他的思路和代码层级重新写了。</p>
+</blockquote>
+<hr>
+<p>另一个大的问题就是，环境……</p>
+<p>联调的时候，dotnet3.1还好，微软的包维护得还是可以的。但是node这边，一言难尽。当时那几兄弟用的taobao.org的镜像源，现在已经失效了。哎，只有一个一个排查，慢慢npm install试咯！、</p>
+<hr>
+<p>他妈的还有一个问题，他们遗留了一些错误代码，而且我又太相信他们了，导致走了一点弯路。<br>给各位看看他们的代码嗷！👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**axios封装</span></span><br><span class="line"><span class="comment"> * 请求拦截、相应拦截、错误统一处理</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;mutations, store&#125; <span class="keyword">from</span> <span class="string">&#x27;../store&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">TIP</span> = <span class="string">&quot;http://127.0.0.1:5000&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fileApi = <span class="variable constant_">TIP</span> + <span class="string">&quot;/api/Resourcess/UploadImg?token=&quot;</span> + store.<span class="property">token</span>; <span class="comment">//上传文件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">ReadFileApi</span> = <span class="variable constant_">TIP</span> + <span class="string">&quot;/api/Resourcess/Read/Read&quot;</span>; <span class="comment">//获取图片</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">ReadVideoApi</span> = <span class="variable constant_">TIP</span> + <span class="string">&quot;/api/foreground/Video/Play&quot;</span>; <span class="comment">// 获取视频资源</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 环境的切换</span></span><br><span class="line"><span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> == <span class="string">&#x27;development&#x27;</span>) &#123;</span><br><span class="line">    axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="variable constant_">TIP</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> == <span class="string">&#x27;debug&#x27;</span>) &#123;</span><br><span class="line">    axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> == <span class="string">&#x27;production&#x27;</span>) &#123;</span><br><span class="line">    axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我是那么的相信他们，看他们生产环境和开发环境配置有做分离，直接npm build就丢到服务器上了，结果资源定位还是127.0.0.1。<br>嗷，结果他妈的回头一看，他妈的<strong>环境的切换</strong>，切换了个锤子，他妈的几个Api都写死成127.0.0.1了，人才！我看他们的git记录（本地的）还是几个人协作的，我都不知道他们协作了个啥子。</p>
+<h1 id="故事的最后"><a href="#故事的最后" class="headerlink" title="故事的最后"></a>故事的最后</h1><p>就是把几个功能改改，界面修修，然后重新打包放上去了。其实要说很难吗？感觉也不难，就是觉得碰别人的屎山代码很难受，很难受。告一段落后的我随便写点东西来吐槽一下罢了。</p>
+<p>差不多该下班了，溜溜球。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BB%A3%E7%A0%81/" rel="tag"># 代码</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/16/%E5%89%AA%E8%A7%86%E9%A2%91%E7%94%A8pr%EF%BC%9F%E6%9F%90%E4%BA%9B%E6%97%B6%E5%80%99ffmpeg%E6%9B%B4%E5%A5%BD%E7%94%A8/" rel="prev" title="剪视频用pr？某些时候ffmpeg更好用">
+                  <i class="fa fa-angle-left"></i> 剪视频用pr？某些时候ffmpeg更好用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/06/03/%E6%88%91%E7%8E%B0%E9%98%B6%E6%AE%B5%E5%B9%BF%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8C%97%EF%BC%9A%E8%B4%AF%E7%A9%BF%E4%B8%80%E5%88%87%E7%9A%84%E9%94%A4%E5%AD%90%E4%BB%AC/" rel="next" title="(我)现阶段[广义上的]工具链指北：贯穿一切的锤子们">
+                  (我)现阶段[广义上的]工具链指北：贯穿一切的锤子们 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+<hr>
+  <div class="article-comments"><link href="https://artalk.jiangkerman.cc/dist/Artalk.css" rel="stylesheet" />
+<script src="https://artalk.jiangkerman.cc/dist/Artalk.js"></script>
+
+<div id="Comments"></div>
+
+<script>
+  var artalk = Artalk.init({
+    el: '#Comments',
+    pageKey: 'https://jiangkerman.cc/2025/05/21/%E6%90%85%E5%8A%A8%E4%BA%86dotnet3-1-vue2-6%E7%9A%84%E5%B1%8E%E5%B1%B1%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E5%85%88%E5%90%83%E4%BA%86%EF%BC%81/',
+    pageTitle: '搅动了dotnet3.1 + vue2.6的屎山代码，我先吃了！',
+    server: 'https://artalk.jiangkerman.cc',
+    site: '一个博客',
+  })
+</script>
+</div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangKerman</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
