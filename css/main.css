@@ -1227,7 +1227,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #5effd6;
+  background: #d5ffff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2597,4 +2597,33 @@ details[open] summary {
 }
 .archive .collection-title {
   display: none !important;
+}
+@media (max-width: 767px) {
+  .site-meta {
+    text-align: left;
+  }
+  .site-nav-toggle {
+    display: none;
+  }
+  .header .site-nav {
+    height: auto;
+    visibility: visible;
+  }
+  .site-nav .main-menu {
+    display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: center;
+  }
+  .site-nav .menu-item {
+    visibility: visible;
+  }
+  .site-nav .menu-item a {
+    padding: 4px 6px;
+    white-space: nowrap;
+  }
+}
+.site-nav .main-menu .menu-item a {
+  color: #666;
 }
